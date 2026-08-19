@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Izak's Internship Complete</title>
+  <style>
+    :root{
+      --text:#f3f3f3;
+      --muted:#d2d2d2;
+      --gold:#ffd54a;
+      --green:#7fdc5b;
+      --green-dark:#3f7e2c;
+      --panel-top:rgba(58,58,58,.97);
+      --panel-bottom:rgba(28,28,28,.97);
+      --brown-top:#6e4b2f;
+      --brown-bottom:#3b2718;
+      --shadow:rgba(0,0,0,.55);
+      --slot-light:#8f8f8f;
+      --slot-mid:#5c5c5c;
+      --slot-dark:#2e2e2e;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html, body{
+      min-height:100%;
+      overflow-x:hidden;
+    }
+
+    body{
+      position:relative;
+      padding:40px 20px 70px;
+      overflow-x:hidden;
+      background-color:#3d2818;
+      color:var(--text);
+      font-family:
+        "Minecraft",
+        "Press Start 2P",
+        "Lucida Console",
+        "Courier New",
+        monospace;
+      image-rendering:pixelated;
+      letter-spacing:.3px;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(0,0,0,.32), rgba(0,0,0,.48)),
+        url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256' shape-rendering='crispEdges'>\
+  <rect width='256' height='256' fill='%2369462b'/>\
+  <rect y='0' width='256' height='18' fill='%2324a62b'/>\
+  <rect y='18' width='256' height='8' fill='%231d8d22'/>\
+  <rect x='0' y='26' width='16' height='16' fill='%23573520'/>\
+  <rect x='16' y='26' width='16' height='16' fill='%237b5634'/>\
+  <rect x='32' y='26' width='16' height='16' fill='%23684728'/>\
+  <rect x='48' y='26' width='16' height='16' fill='%238a623b'/>\
+  <rect x='64' y='26' width='16' height='16' fill='%2354341f'/>\
+  <rect x='80' y='26' width='16' height='16' fill='%23714e2e'/>\
+  <rect x='96' y='26' width='16' height='16' fill='%23815a36'/>\
+  <rect x='112' y='26' width='16' height='16' fill='%23583622'/>\
+  <rect x='128' y='26' width='16' height='16' fill='%237a5533'/>\
+  <rect x='144' y='26' width='16' height='16' fill='%23654327'/>\
+  <rect x='160' y='26' width='16' height='16' fill='%2385623c'/>\
+  <rect x='176' y='26' width='16' height='16' fill='%2353341e'/>\
+  <rect x='192' y='26' width='16' height='16' fill='%23714f2f'/>\
+  <rect x='208' y='26' width='16' height='16' fill='%23835b37'/>\
+  <rect x='224' y='26' width='16' height='16' fill='%23684528'/>\
+  <rect x='240' y='26' width='16' height='16' fill='%23593823'/>\
+  <rect x='0' y='42' width='16' height='16' fill='%2383603a'/>\
+  <rect x='16' y='42' width='16' height='16' fill='%23694728'/>\
+  <rect x='32' y='42' width='16' height='16' fill='%23593823'/>\
+  <rect x='48' y='42' width='16' height='16' fill='%23725030'/>\
+  <rect x='64' y='42' width='16' height='16' fill='%238a623b'/>\
+  <rect x='80' y='42' width='16' height='16' fill='%2354341f'/>\
+  <rect x='96' y='42' width='16' height='16' fill='%237a5534'/>\
+  <rect x='112' y='42' width='16' height='16' fill='%23644226'/>\
+  <rect x='128' y='42' width='16' height='16' fill='%23815a36'/>\
+  <rect x='144' y='42' width='16' height='16' fill='%23573621'/>\
+  <rect x='160' y='42' width='16' height='16' fill='%23714d2d'/>\
+  <rect x='176' y='42' width='16' height='16' fill='%2387633c'/>\
+  <rect x='192' y='42' width='16' height='16' fill='%2353341e'/>\
+  <rect x='208' y='42' width='16' height='16' fill='%23714f2f'/>\
+  <rect x='224' y='42' width='16' height='16' fill='%23815a36'/>\
+  <rect x='240' y='42' width='16' height='16' fill='%23674528'/>\
+  <rect x='12' y='60' width='8' height='8' fill='%239ca6b0'/>\
+  <rect x='58' y='90' width='8' height='8' fill='%239ca6b0'/>\
+  <rect x='118' y='72' width='8' height='8' fill='%239ca6b0'/>\
+  <rect x='180' y='118' width='8' height='8' fill='%239ca6b0'/>\
+  <rect x='214' y='84' width='8' height='8' fill='%239ca6b0'/>\
+  <rect x='36' y='144' width='8' height='8' fill='%239ca6b0'/>\
+  <rect x='94' y='168' width='8' height='8' fill='%239ca6b0'/>\
+  <rect x='156' y='188' width='8' height='8' fill='%239ca6b0'/>\
+  <rect x='224' y='210' width='8' height='8' fill='%239ca6b0'/>\
+</svg>");
+      background-size:cover, 180px 180px;
+      background-repeat:no-repeat, repeat;
+      background-position:center, center;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background:
+        linear-gradient(to right, rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size:20px 20px;
+      opacity:.16;
+    }
+
+    .container{
+      width:min(1120px, 100%);
+      margin:0 auto;
+      position:relative;
+      z-index:2;
+    }
+
+    .hero{
+      text-align:center;
+      margin-bottom:34px;
+    }
+
+    .hero h1{
+      font-size:clamp(26px, 4.5vw, 48px);
+      line-height:1.35;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      margin-bottom:16px;
+      text-shadow:4px 4px 0 #000;
+    }
+
+    .hero p{
+      font-size:clamp(12px, 1.6vw, 15px);
+      color:var(--muted);
+      text-shadow:2px 2px 0 #000;
+      max-width:920px;
+      margin:0 auto;
+      line-height:1.9;
+    }
+
+    .mc-panel{
+      background:linear-gradient(to bottom, var(--panel-top), var(--panel-bottom));
+      border:4px solid #000;
+      box-shadow:
+        inset 0 0 0 2px #4b4b4b,
+        0 6px 0 #000,
+        0 10px 22px rgba(0,0,0,.35);
+      backdrop-filter:blur(2px);
+    }
+
+    .achievement-toast{
+      width:min(660px, 100%);
+      margin:0 auto 28px;
+      padding:14px;
+      display:grid;
+      grid-template-columns:72px 1fr;
+      gap:14px;
+      align-items:center;
+      background:linear-gradient(to bottom, #6d4c2f, #3b2718);
+      border:4px solid #000;
+      box-shadow:
+        inset 0 0 0 2px #8a6640,
+        0 8px 0 #000,
+        0 15px 28px var(--shadow);
+      animation:slideDown .7s ease;
+    }
+
+    @keyframes slideDown{
+      from{ opacity:0; transform:translateY(-18px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    .profile-panel{
+      margin:0 auto 28px;
+      width:min(840px, 100%);
+      padding:18px;
+    }
+
+    .profile-panel h2,
+    .section-title,
+    .farewell h2,
+    .memory-title{
+      color:var(--gold);
+      text-transform:uppercase;
+      text-shadow:2px 2px 0 #000;
+    }
+
+    .profile-panel h2{
+      margin-bottom:14px;
+      font-size:16px;
+      line-height:1.5;
+    }
+
+    .profile-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:12px;
+    }
+
+    .profile-item{
+      background:rgba(0,0,0,.24);
+      border:3px solid #000;
+      padding:12px;
+      box-shadow:inset 0 0 0 2px rgba(255,255,255,.05);
+    }
+
+    .profile-item strong{
+      display:block;
+      color:#9be775;
+      margin-bottom:8px;
+      text-shadow:1px 1px 0 #000;
+      text-transform:uppercase;
+      font-size:10px;
+      line-height:1.5;
+    }
+
+    .profile-item span{
+      color:#ededed;
+      font-size:12px;
+      line-height:1.8;
+      text-shadow:1px 1px 0 #000;
+    }
+
+    .name-with-steve{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .section-title{
+      margin:22px 0 18px;
+      font-size:16px;
+      line-height:1.5;
+    }
+
+    .achievements-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:18px;
+    }
+
+    .card{
+      padding:16px;
+      transition:transform .12s ease, filter .15s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      filter:brightness(1.05);
+    }
+
+    .card-top{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:14px;
+    }
+
+    .card h3{
+      font-size:13px;
+      margin-bottom:6px;
+      text-shadow:2px 2px 0 #000;
+      line-height:1.6;
+      text-transform:uppercase;
+    }
+
+    .status{
+      font-size:10px;
+      text-transform:uppercase;
+      text-shadow:1px 1px 0 #000;
+      color:var(--green);
+      line-height:1.5;
+    }
+
+    .card p{
+      font-size:12px;
+      line-height:1.8;
+      color:#e6e6e6;
+      text-shadow:1px 1px 0 #000;
+      margin-bottom:14px;
+    }
+
+    .progress{
+      height:18px;
+      background:#111;
+      border:3px solid #000;
+      box-shadow:inset 0 0 0 2px #333;
+      overflow:hidden;
+    }
+
+    .progress div{
+      height:100%;
+      width:100%;
+      background:linear-gradient(to right, #a7ef72, #447e31);
+    }
+
+    .card-footer{
+      margin-top:10px;
+      font-size:10px;
+      color:var(--muted);
+      text-shadow:1px 1px 0 #000;
+      line-height:1.6;
+      text-transform:uppercase;
+    }
+
+    .farewell{
+      margin-top:34px;
+      padding:22px;
+      background:linear-gradient(to bottom, rgba(72,48,28,.96), rgba(40,25,15,.96));
+      border:4px solid #000;
+      box-shadow:
+        inset 0 0 0 2px #89613a,
+        0 6px 0 #000,
+        0 12px 24px rgba(0,0,0,.35);
+      text-align:center;
+    }
+
+    .farewell h2{
+      margin-bottom:12px;
+      font-size:16px;
+      line-height:1.5;
+    }
+
+    .farewell p{
+      color:#f0f0f0;
+      font-size:12px;
+      line-height:2;
+      text-shadow:1px 1px 0 #000;
+      max-width:860px;
+      margin:0 auto;
+    }
+
+    .footer{
+      margin-top:26px;
+      text-align:center;
+      color:var(--muted);
+      font-size:10px;
+      text-shadow:1px 1px 0 #000;
+      line-height:1.8;
+      text-transform:uppercase;
+    }
+
+    .floating-achievement{
+      position:fixed;
+      top:20px;
+      right:20px;
+      width:min(440px, calc(100vw - 40px));
+      z-index:50;
+      display:grid;
+      grid-template-columns:56px 1fr;
+      gap:12px;
+      padding:12px;
+      background:linear-gradient(to bottom, var(--brown-top), var(--brown-bottom));
+      border:4px solid #000;
+      box-shadow:
+        inset 0 0 0 2px #8c6640,
+        0 8px 0 #000,
+        0 12px 24px rgba(0,0,0,.42);
+      transform:translateY(-140%);
+      opacity:0;
+      transition:all .45s ease;
+    }
+
+    .floating-achievement.show{
+      transform:translateY(0);
+      opacity:1;
+    }
+
+    .achievement-label{
+      display:block;
+      color:var(--gold);
+      margin-bottom:6px;
+      text-shadow:1px 1px 0 #000;
+      font-size:10px;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+
+    .achievement-title{
+      display:block;
+      font-size:13px;
+      margin-bottom:6px;
+      text-shadow:2px 2px 0 #000;
+      line-height:1.6;
+      text-transform:uppercase;
+    }
+
+    .achievement-sub{
+      font-size:11px;
+      color:#ececec;
+      text-shadow:1px 1px 0 #000;
+      line-height:1.6;
+    }
+
+    .slot{
+      width:56px;
+      height:56px;
+      position:relative;
+      flex-shrink:0;
+      background:
+        linear-gradient(135deg, var(--slot-light) 0 24%, var(--slot-mid) 24% 70%, var(--slot-dark) 70% 100%);
+      border:4px solid #000;
+      box-shadow:
+        inset 2px 2px 0 rgba(255,255,255,.16),
+        inset -2px -2px 0 rgba(0,0,0,.3);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .slot.large{
+      width:72px;
+      height:72px;
+    }
+
+    .slot.small{
+      width:44px;
+      height:44px;
+    }
+
+    .slot::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      box-shadow:inset 0 0 0 2px rgba(255,255,255,.06);
+      pointer-events:none;
+    }
+
+    .pixel-svg{
+      width:28px;
+      height:28px;
+      image-rendering:pixelated;
+      shape-rendering:crispEdges;
+    }
+
+    .slot.large .pixel-svg{
+      width:36px;
+      height:36px;
+    }
+
+    .slot.small .pixel-svg{
+      width:24px;
+      height:24px;
+    }
+
+    .memory-action{
+      margin-top:26px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .mc-button{
+      appearance:none;
+      border:none;
+      cursor:pointer;
+      min-width:260px;
+      padding:14px 18px;
+      color:#fff;
+      font-family:inherit;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      text-shadow:2px 2px 0 #000;
+      background:linear-gradient(to bottom, #8fe66f, #5ea83b);
+      border:4px solid #2d5d1c;
+      box-shadow:
+        inset 0 4px 0 rgba(255,255,255,.16),
+        0 6px 0 #1e3d13;
+      transition:transform .08s ease, filter .15s ease;
+    }
+
+    .mc-button:hover{
+      filter:brightness(1.06);
+    }
+
+    .mc-button:active{
+      transform:translateY(4px);
+      box-shadow:
+        inset 0 4px 0 rgba(255,255,255,.16),
+        0 2px 0 #1e3d13;
+    }
+
+    .memory-modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.72);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:100;
+    }
+
+    .memory-modal.show{
+      display:flex;
+    }
+
+    .memory-box{
+      width:min(980px, 100%);
+      max-height:90vh;
+      overflow:auto;
+      padding:18px;
+    }
+
+    .memory-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:16px;
+    }
+
+    .memory-title{
+      font-size:16px;
+      line-height:1.5;
+    }
+
+    .close-btn{
+      appearance:none;
+      border:none;
+      cursor:pointer;
+      padding:10px 14px;
+      color:#fff;
+      font-family:inherit;
+      font-size:10px;
+      text-transform:uppercase;
+      text-shadow:1px 1px 0 #000;
+      background:linear-gradient(to bottom, #b95f5f, #8a2f2f);
+      border:4px solid #4f1717;
+      box-shadow:
+        inset 0 4px 0 rgba(255,255,255,.10),
+        0 5px 0 #2d0d0d;
+    }
+
+    .memory-content{
+      text-align:center;
+    }
+
+    .memory-content p{
+      font-size:11px;
+      line-height:1.8;
+      color:var(--muted);
+      text-shadow:1px 1px 0 #000;
+      margin-bottom:14px;
+    }
+
+    .memory-image{
+      width:100%;
+      height:auto;
+      display:block;
+      border:4px solid #000;
+      box-shadow:
+        inset 0 0 0 2px rgba(255,255,255,.06),
+        0 6px 0 #000,
+        0 12px 24px rgba(0,0,0,.35);
+      image-rendering:auto;
+      background:#1b1b1b;
+    }
+
+    @media (max-width: 700px){
+      body{
+        padding:26px 14px 60px;
+      }
+
+      .achievement-toast{
+        grid-template-columns:56px 1fr;
+        padding:12px;
+      }
+
+      .slot.large{
+        width:56px;
+        height:56px;
+      }
+
+      .slot.large .pixel-svg{
+        width:28px;
+        height:28px;
+      }
+
+      .floating-achievement{
+        width:min(95vw, 440px);
+      }
+
+      .memory-header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .mc-button{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-achievement" id="floatingAchievement">
+    <div class="slot">
+      <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="1" width="6" height="2" fill="#ffd54a"/>
+        <rect x="4" y="3" width="8" height="3" fill="#ffd54a"/>
+        <rect x="3" y="4" width="1" height="2" fill="#c3921f"/>
+        <rect x="12" y="4" width="1" height="2" fill="#c3921f"/>
+        <rect x="6" y="6" width="4" height="2" fill="#e6b93f"/>
+        <rect x="7" y="8" width="2" height="3" fill="#9b6a22"/>
+        <rect x="5" y="11" width="6" height="2" fill="#7b5220"/>
+        <rect x="4" y="13" width="8" height="2" fill="#5c3b15"/>
+      </svg>
+    </div>
+    <div>
+      <span class="achievement-label">Achievement Get!</span>
+      <span class="achievement-title">Izak's Internship Complete</span>
+      <div class="achievement-sub">Rare traits unlocked: talent, taste, teamwork, and mango power</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="hero">
+      <h1>Izak's Internship Complete</h1>
+      <p>
+        A farewell tribute to Izak — a software development student who learned fast,
+        solved problems, helped the team, and somehow managed to have oddly specific but consistently excellent taste.
+      </p>
+    </header>
+
+    <section class="achievement-toast">
+      <div class="slot large">
+        <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="10" height="6" fill="#6ec1ff"/>
+          <rect x="2" y="2" width="12" height="1" fill="#222"/>
+          <rect x="2" y="3" width="1" height="6" fill="#222"/>
+          <rect x="13" y="3" width="1" height="6" fill="#222"/>
+          <rect x="2" y="9" width="12" height="1" fill="#222"/>
+          <rect x="1" y="10" width="14" height="2" fill="#9c9c9c"/>
+          <rect x="5" y="11" width="6" height="1" fill="#7c7c7c"/>
+        </svg>
+      </div>
+      <div>
+        <span class="achievement-label">Achievement Unlocked</span>
+        <span class="achievement-title">Chapter Completed</span>
+        <div class="achievement-sub">
+          This internship may be ending, but Izak's impact, energy, and memorable presence are staying with us.
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-panel mc-panel">
+      <h2>Player Profile</h2>
+      <div class="profile-grid">
+        <div class="profile-item">
+          <strong>Name</strong>
+          <span class="name-with-steve">
+            <span class="slot small">
+              <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="1" width="8" height="2" fill="#4b2e1f"/>
+                <rect x="3" y="3" width="10" height="2" fill="#4b2e1f"/>
+                <rect x="4" y="5" width="8" height="4" fill="#d9a066"/>
+                <rect x="5" y="6" width="1" height="1" fill="#1b1b1b"/>
+                <rect x="10" y="6" width="1" height="1" fill="#1b1b1b"/>
+                <rect x="4" y="9" width="8" height="3" fill="#3bb3c3"/>
+                <rect x="2" y="9" width="2" height="4" fill="#d9a066"/>
+                <rect x="12" y="9" width="2" height="4" fill="#d9a066"/>
+                <rect x="4" y="12" width="3" height="3" fill="#3d4aa8"/>
+                <rect x="9" y="12" width="3" height="3" fill="#3d4aa8"/>
+              </svg>
+            </span>
+            Izak
+          </span>
+        </div>
+
+        <div class="profile-item">
+          <strong>Profession</strong>
+          <span>Software Development Student</span>
+        </div>
+
+        <div class="profile-item">
+          <strong>Special Skills</strong>
+          <span>Learning fast, solving problems, helping the team, and having oddly specific but excellent taste</span>
+        </div>
+
+        <div class="profile-item">
+          <strong>Favorite Items</strong>
+          <span>Mangoes, dachshunds, and Minecraft</span>
+        </div>
+
+        <div class="profile-item">
+          <strong>Weakness</strong>
+          <span>Possibly a world with no mangoes</span>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="section-title">Unlocked Achievements</h2>
+    <section class="achievements-grid">
+      <article class="card mc-panel">
+        <div class="card-top">
+          <div class="slot">
+            <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="7" y="1" width="3" height="4" fill="#ffe45c"/>
+              <rect x="6" y="5" width="3" height="3" fill="#ffd54a"/>
+              <rect x="8" y="8" width="3" height="3" fill="#ffbf2f"/>
+              <rect x="5" y="11" width="3" height="4" fill="#f0a500"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Fast Learner</h3>
+            <div class="status">Unlocked</div>
+          </div>
+        </div>
+        <p>Picked up new tools, ideas, and challenges quickly, making growth look effortless.</p>
+        <div class="progress"><div></div></div>
+        <div class="card-footer">Completed at 100%</div>
+      </article>
+
+      <article class="card mc-panel">
+        <div class="card-top">
+          <div class="slot">
+            <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="5" height="5" fill="#7fdc5b"/>
+              <rect x="9" y="2" width="5" height="5" fill="#5ab13c"/>
+              <rect x="2" y="9" width="5" height="5" fill="#5ab13c"/>
+              <rect x="9" y="9" width="5" height="5" fill="#7fdc5b"/>
+              <rect x="6" y="5" width="4" height="2" fill="#2a2a2a"/>
+              <rect x="6" y="9" width="4" height="2" fill="#2a2a2a"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Problem Solver</h3>
+            <div class="status">Unlocked</div>
+          </div>
+        </div>
+        <p>Approached technical obstacles with patience, curiosity, and the kind of thinking every team values.</p>
+        <div class="progress"><div></div></div>
+        <div class="card-footer">Completed at 100%</div>
+      </article>
+
+      <article class="card mc-panel">
+        <div class="card-top">
+          <div class="slot">
+            <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="5" width="5" height="4" fill="#c88b5a"/>
+              <rect x="10" y="5" width="5" height="4" fill="#c88b5a"/>
+              <rect x="5" y="6" width="2" height="3" fill="#e0b18a"/>
+              <rect x="7" y="7" width="2" height="2" fill="#e0b18a"/>
+              <rect x="9" y="6" width="2" height="3" fill="#e0b18a"/>
+              <rect x="0" y="4" width="2" height="6" fill="#4a78c2"/>
+              <rect x="14" y="4" width="2" height="6" fill="#4a78c2"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Team Helper</h3>
+            <div class="status">Unlocked</div>
+          </div>
+        </div>
+        <p>Always willing to support others, contribute positively, and make teamwork smoother and stronger.</p>
+        <div class="progress"><div></div></div>
+        <div class="card-footer">Completed at 100%</div>
+      </article>
+
+      <article class="card mc-panel">
+        <div class="card-top">
+          <div class="slot">
+            <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="5" y="1" width="6" height="2" fill="#ff5b5b"/>
+              <rect x="3" y="3" width="10" height="2" fill="#fff"/>
+              <rect x="2" y="5" width="12" height="2" fill="#ff5b5b"/>
+              <rect x="3" y="7" width="10" height="2" fill="#fff"/>
+              <rect x="5" y="9" width="6" height="2" fill="#ff5b5b"/>
+              <rect x="7" y="5" width="2" height="6" fill="#222"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Excellent Taste</h3>
+            <div class="status">Unlocked</div>
+          </div>
+        </div>
+        <p>Possessed the rare gift of being oddly specific and still somehow undeniably correct.</p>
+        <div class="progress"><div></div></div>
+        <div class="card-footer">Legendary trait confirmed</div>
+      </article>
+
+      <article class="card mc-panel">
+        <div class="card-top">
+          <div class="slot">
+            <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="8" height="2" fill="#e9f7ff"/>
+              <rect x="3" y="4" width="10" height="7" fill="#aee3ff"/>
+              <rect x="4" y="5" width="8" height="1" fill="#ffffff"/>
+              <rect x="6" y="11" width="4" height="2" fill="#d7f4ff"/>
+              <rect x="5" y="13" width="6" height="1" fill="#7fc7e8"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Sugar Free Legend</h3>
+            <div class="status">Unlocked</div>
+          </div>
+        </div>
+        <p>Proved that great energy, good vibes, and solid performance never needed extra sugar.</p>
+        <div class="progress"><div></div></div>
+        <div class="card-footer">Certified sugar free</div>
+      </article>
+
+      <article class="card mc-panel">
+        <div class="card-top">
+          <div class="slot">
+            <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="6" width="8" height="3" fill="#9b5d2e"/>
+              <rect x="11" y="5" width="3" height="3" fill="#b36b35"/>
+              <rect x="13" y="6" width="1" height="1" fill="#111"/>
+              <rect x="4" y="9" width="1" height="4" fill="#6d3f1f"/>
+              <rect x="9" y="9" width="1" height="4" fill="#6d3f1f"/>
+              <rect x="2" y="5" width="1" height="2" fill="#6d3f1f"/>
+              <rect x="2" y="4" width="1" height="1" fill="#c88b5a"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Dachshund Ally</h3>
+            <div class="status">Unlocked</div>
+          </div>
+        </div>
+        <p>Earned honorary approval from the short-legged guardians of charm and excellent judgment.</p>
+        <div class="progress"><div></div></div>
+        <div class="card-footer">Certified wholesome</div>
+      </article>
+
+      <article class="card mc-panel">
+        <div class="card-top">
+          <div class="slot">
+            <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="12" height="3" fill="#36a332"/>
+              <rect x="2" y="5" width="12" height="1" fill="#2b8a28"/>
+              <rect x="2" y="6" width="12" height="8" fill="#7a5533"/>
+              <rect x="4" y="8" width="2" height="2" fill="#5a3b23"/>
+              <rect x="8" y="10" width="2" height="2" fill="#916641"/>
+              <rect x="11" y="7" width="1" height="1" fill="#a1a8af"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Minecraft Spirit</h3>
+            <div class="status">Unlocked</div>
+          </div>
+        </div>
+        <p>Brought creativity, curiosity, and block-by-block dedication worthy of a true Minecraft fan.</p>
+        <div class="progress"><div></div></div>
+        <div class="card-footer">Built with style</div>
+      </article>
+
+      <article class="card mc-panel">
+        <div class="card-top">
+          <div class="slot">
+            <svg class="pixel-svg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="7" y="1" width="2" height="3" fill="#d8d8d8"/>
+              <rect x="6" y="4" width="4" height="5" fill="#f0f0f0"/>
+              <rect x="5" y="6" width="1" height="3" fill="#4a78c2"/>
+              <rect x="10" y="6" width="1" height="3" fill="#4a78c2"/>
+              <rect x="7" y="5" width="2" height="2" fill="#ff5b5b"/>
+              <rect x="6" y="9" width="1" height="2" fill="#ff9f1a"/>
+              <rect x="9" y="9" width="1" height="2" fill="#ff9f1a"/>
+              <rect x="7" y="11" width="2" height="3" fill="#ffbf2f"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Next Level Ready</h3>
+            <div class="status">Unlocked</div>
+          </div>
+        </div>
+        <p>This chapter is complete, and the next adventure is ready for someone with Izak's talent and character.</p>
+        <div class="progress"><div></div></div>
+        <div class="card-footer">New quest available</div>
+      </article>
+    </section>
+
+    <div class="memory-action">
+      <button class="mc-button" onclick="openMemoryModal()">Unlock Memories</button>
+    </div>
+
+    <section class="farewell">
+      <h2>Final Message</h2>
+      <p>
+        Izak, thank you for everything you brought to the team. Your fast learning, problem-solving mindset,
+        willingness to help, and unmistakably excellent taste made a real difference. We are grateful to have
+        shared this chapter with you, and excited to see where your next level takes you. May your code stay clean,
+        your bugs stay small, your Minecraft worlds stay thriving, and your life always have mangoes.
+      </p>
+    </section>
+
+    <div class="footer">
+      Achievement Get! Farewell page completed.
+    </div>
+  </div>
+
+  <div class="memory-modal" id="memoryModal">
+    <div class="memory-box mc-panel">
+      <div class="memory-header">
+        <div class="memory-title">Photo Collage Unlocked</div>
+        <button class="close-btn" onclick="closeMemoryModal()">Close</button>
+      </div>
+      <div class="memory-content">
+        <p>Replace <strong>collage.jpg</strong> with the name of your image file if needed.</p>
+        <img src="collage.jpg" alt="Photo collage" class="memory-image">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const achievement = document.getElementById('floatingAchievement');
+      setTimeout(() => achievement.classList.add('show'), 700);
+      setTimeout(() => achievement.classList.remove('show'), 4200);
+    });
+
+    function openMemoryModal(){
+      document.getElementById('memoryModal').classList.add('show');
+    }
+
+    function closeMemoryModal(){
+      document.getElementById('memoryModal').classList.remove('show');
+    }
+
+    document.getElementById('memoryModal').addEventListener('click', function(e){
+      if(e.target === this){
+        closeMemoryModal();
+      }
+    });
+  </script>
+</body>
+</html>
